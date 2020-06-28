@@ -120,7 +120,13 @@ text.addEventListener('input', e => {
         e.target.value = ''
 
         // After intered word
-        time += 5
+        if (difficulty === 'hard') {
+            time += 2
+        } else if (difficulty === 'medium') {
+            time += 3
+        } else {
+            time += 5
+        }
         updateTime()
     }
 })
