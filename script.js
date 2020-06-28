@@ -31,7 +31,7 @@ let words = [
     'drag',
     'loving'
 ]
-
+getWords(20)
 // Init word
 let randowWord;
 
@@ -42,18 +42,45 @@ let score = 0;
 let time = 10;
 
 // Generate random word from array
-function getRandowWord() {
+function getRandomWord() {
     return words[Math.floor(Math.random() * (words.length + 1))];
 }
+
+// Add word to DOM 
+function addWordToDOM() {
+    randomWord = getRandomWord();
+    word.innerHTML = randomWord
+}
+
+addWordToDOM()
 
 // Fetch random words
 async function getWords(number) {
     let response = await fetch(`https://random-word-api.herokuapp.com/word?number=${number}`)
-    .catch(function(err) {
-        console.log('Fetch Error', err);
-    })
+        .catch(function (err) {
+            console.log('Fetch Error', err);
+        })
 
     let data = await response.json()
     words = data
 }
-getWords(20)
+
+// Update score
+function updateScore() {
+    score++;
+    scoreEl.innerHTML = score;
+}
+
+// Event listeners
+
+text.addEventListener('input', e => {
+    const insertedText = e.target.value
+
+    if (insertedText === randomWord) {
+        addWordToDOM()
+        updateScore()
+
+        // Clear
+        e.target.value = ''
+    }
+})
