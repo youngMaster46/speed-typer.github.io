@@ -8,3 +8,26 @@ const settings = document.getElementById('settings')
 const settingsForm = document.getElementById('settings-form')
 const difficultySelect = document.getElementById('difficulty')
 
+// List of words for game
+const words = [
+    'sigh',
+    'tense',
+    'airplane',
+    'ball',
+    'pies',
+    'juice',
+    'warlike',
+    'bad',
+    'north',
+    'dependent',
+    'steer',
+    'silver',
+    'highfalutin',
+    'superficial',
+    'quince',
+    'eigth',
+    'feeble',
+    'admit',
+    'drag',
+    'loving'
+]
