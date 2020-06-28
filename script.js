@@ -32,6 +32,21 @@ let words = [
     'loving'
 ]
 
+// Init word
+let randowWord;
+
+// Init score
+let score = 0;
+
+// Init time 
+let time = 10;
+
+// Generate random word from array
+function getRandowWord() {
+    return words[Math.floor(Math.random() * (words.length + 1))];
+}
+
+// Fetch random words
 async function getWords(number) {
     let response = await fetch(`https://random-word-api.herokuapp.com/word?number=${number}`)
     .catch(function(err) {
