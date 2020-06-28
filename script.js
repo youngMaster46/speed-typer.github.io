@@ -9,7 +9,7 @@ const settingsForm = document.getElementById('settings-form')
 const difficultySelect = document.getElementById('difficulty')
 
 // List of words for game
-const words = [
+let words = [
     'sigh',
     'tense',
     'airplane',
@@ -31,3 +31,14 @@ const words = [
     'drag',
     'loving'
 ]
+
+async function getWords(number) {
+    let response = await fetch(`https://random-word-api.herokuapp.com/word?number=${number}`)
+    .catch(function(err) {
+        console.log('Fetch Error', err);
+    })
+
+    let data = await response.json()
+    words = data
+}
+getWords(20)
