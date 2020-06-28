@@ -111,5 +111,9 @@ text.addEventListener('input', e => {
 
         // Clear
         e.target.value = ''
+
+        // After intered word
+        time += 5
+        updateTime()
     }
 })
